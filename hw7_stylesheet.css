@@ -1,0 +1,212 @@
+* {
+  /*border: 1px solid black;*/
+  font-family: Verdana;
+}
+
+#main {
+  width: 1000px;
+  height: 250px;
+  margin: auto;
+}
+
+.header {
+  background-color: #74C2BE;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+
+.separate {
+  border: 1px solid black;
+}
+
+body {
+  background-color: #EFEFEF;
+}
+
+#homer {
+  height: auto;
+  width: 150px;
+  border-radius: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+h3 {
+  text-align: center;
+  color: #EFEFEF;
+  letter-spacing: 2px;
+}
+
+article {
+  width: 79%;
+  height: 480px;
+  background-color: #A3D39C;
+  margin-left: 0px;
+  margin-right: auto;
+  border-radius: 5px;
+  float: right;
+}
+
+article h2 {
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+article p {
+  margin-top: 0px;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+th {
+  text-align: left;
+}
+
+td {
+  text-align: center;
+}
+
+table {
+  margin: 20px auto 20px auto;
+  table-layout: fixed;
+}
+
+thead tr th {
+  text-align: center;
+  border-bottom: 3px solid black;
+}
+
+th, td {
+  width: 100px;
+}
+
+tr {
+  height: 40px;
+}
+
+aside {
+  width: 20%;
+  height: 480px;
+  background-color: #424242;
+  float: left;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+aside p {
+  color: #EFEFEF;
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  width: 55px;
+  height: 25px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  padding: auto;
+  width: 100px;
+}
+
+div > footer {
+  background-color: #6C8672;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding-top: 2px;
+  clear: both;
+  text-align: center;
+  height: 60px;
+}
+
+footer p {
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+#finePrint {
+  margin-top: 0px;
+  font-weight: normal;
+  font-size: 10px;
+}
+
+#tableButton {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  height: 35px;
+  font-weight: bold;
+  margin-top: 10px;
+
+}
+
+#tableFinePrint {
+  font-size: 10px;
+  width: 400px;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#picDiv {
+  width: 10000px;
+}
+
+#donutPic {
+  display: none;
+  position: absolute;
+  width: auto;
+  height: 150px;
+  margin-left: -500px;
+}
+
+.navButton {
+  display: inline;
+  width: 120px;
+  height: 35px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  padding: 0px;
+}
+
+#locationList {
+  width: 623px;
+  margin: auto;
+  height: 35px;
+  padding-top: 0px;
+}
+
+#downtown, #capitolHill, #southLakeUnion, #wedgewood, #ballard {
+  display: none;
+}
+
+#animateButton {
+  font-weight: bold;
+}
+
+#donutPlate {
+  height: auto;
+  width: 120px;
+  margin: auto;
+  display: block;
+}
+
+#refreshButton {
+  text-align: center;
+}

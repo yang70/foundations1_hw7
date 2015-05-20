@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <!-- final draft -->
+  <head>
+    <title>Donut Shop - Homework 7</title>
+    <link type="text/css" rel="stylesheet" href="hw6_stylesheet.css"/>
+  </head>
+
+  <body>
+    <div id="main">
+
+      <header class="header">
+        <h1>Donut Shop Simulator</h1>
+          <img id="homer" src="https://dl.dropboxusercontent.com/u/69636/homer.jpg" />
+      </header>
+
+      <aside>
+        <h3>Extra Features</h3>
+        <hr>
+        <p>Click to simulate a new day</p>
+        <button id="refreshButton">Refresh</button>
+        <hr class="separate">
+        <p>Click to add a new shop and parameters</p>
+        <button id="addShopButton">Click</button>
+        <hr class="separate">
+        <p>Mystery Button</p>
+        <button id="animateButton">???</button>
+        <hr class="separate">
+        <img id="donutPlate" src="https://dl.dropboxusercontent.com/u/69636/donut_plate.png" />
+      </aside>
+
+      <article>
+
+        <header>
+          <h2>Click on a shop location to display detailed data</h2>
+          <p id="tableFinePrint">* Average donuts per hour is rounded up to display on this table, however it is not rounded until the end for the total donuts per day</p>
+        </header>
+
+        <nav id="locationList">
+          <button class="navButton" id="downtownButton">Downtown</button>
+          <button class="navButton" id="capitolHillButton">Capitol Hill</button>
+          <button class="navButton" id="sluButton">South Lake Union</button>
+          <button class="navButton" id="wedgewoodButton">Wedgewood</button>
+          <button class="navButton" id="ballardButton">Ballard</button>
+        </nav>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Shop Location</th>
+              <th>Hours Open</th>
+              <th>Donuts /Hour</th>
+              <th>Donuts /Day</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+      </article>
+
+      <footer>
+        <p>- Check the console for detailed information for the randomly generated day -</p>
+        <p id="finePrint">Code Fellows Foundations 1 - Homework 6</p>
+      </footer>
+
+    </div>
+
+    <div id="picDiv">
+      <img id="donutPic" src="https://dl.dropboxusercontent.com/u/69636/donut.png" />
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="hw6_script.js"></script>
+  </body>
+</html>
