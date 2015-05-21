@@ -52,7 +52,7 @@ h3 {
 
 article {
   width: 79%;
-  height: 480px;
+  height: 490px;
   background-color: #A3D39C;
   margin-left: 0px;
   margin-right: auto;
@@ -99,7 +99,7 @@ tr {
 
 aside {
   width: 20%;
-  height: 480px;
+  height: 490px;
   background-color: #424242;
   float: left;
   border-radius: 5px;
@@ -225,4 +225,12 @@ input {
   margin-left: auto;
   margin-right: auto;
   display: inline;
+}
+
+form button {
+  display: inline;
+}
+
+.green {
+  background-color: green;
 }

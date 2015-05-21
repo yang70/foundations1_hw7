@@ -16,9 +16,14 @@ $(function() {
     this.hourlyAverage = 0;
 
     //create an array of random numbers for each hour open and store in an array
-    for (var i = 0; i < this.hoursOpen; i++) {
-      this.randomCustArray[i] = (Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) + this.minCustomer);
-    }
+    this.generateRandomCust = function () {
+      for (var i = 0; i < this.hoursOpen; i++) {
+        this.randomCustArray[i] = (Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) + this.minCustomer);
+      }
+    };
+
+    //call function so other functions can work
+    this.generateRandomCust();
 
     //method to return the nubmer of donuts for the random hours generated
     this.getDonutsPerHour = function () {
@@ -79,12 +84,13 @@ $(function() {
     //Generate text entry form when location selected for edit
     this.generateForm = function(loc) {
 
-      var formStructure = "<input class='' type='text' style='color: black;' name='minCust' placeholder='New Min Customer'> <input class='' type='text' style='color: black;' name='maxCust' placeholder='New Max Customer'>"; //need to add button
+      var formStructure = "<input class='' type='text' style='color: black;' name='minCust' placeholder='New Min Customer'> <input class='' type='text' style='color: black;' name='maxCust' placeholder='New Max Customer'> <button class=''>Submit</button>";
 
       $('#newForm').html(function(){
         return formStructure;
       });
       $("input").attr('class', loc);
+      $("form button").attr('class', loc);
     }
 
   }
@@ -237,6 +243,9 @@ $(function() {
   //toggle display/hide edit form
   $('#toggleEditButton').on('click', function() {
       formToggle = !formToggle;
+      $('#toggleEditButton').toggleClass('green');
+      $('.navButton').css('backgroundColor', '');
+      $('tbody tr').remove();
     }
   );
 
@@ -253,8 +262,19 @@ $(function() {
       } else {
         $('.navButton').css('backgroundColor', '');
         $('#downtownButton').css('backgroundColor', 'green');
-        managerBob.generateForm("downtownForm")
-      }
+        managerBob.generateForm("downtownForm");
+
+        $('button.downtownForm').on('click', function(e){
+          e.preventDefault();
+          var newMinCustomer = $('[name="minCust"]').val();
+          var newMaxCustomer = $('[name="maxCust"]').val();
+          downtown = new Shop("Downtown", newMinCustomer, newMaxCustomer, 4.5, 24);
+          downtownTable = false;
+          $("#downtown").remove();
+          displayData("downtown");
+
+          });
+        }
 
     }
   );
@@ -266,6 +286,7 @@ $(function() {
       } else {
         $('.navButton').css('backgroundColor', '');
         $('#capitolHillButton').css('backgroundColor', 'green');
+        managerBob.generateForm("capitolHillForm");
       }
     }
   );
@@ -275,7 +296,9 @@ $(function() {
       if (formToggle === false){
         displayData("southLakeUnion");
       } else {
-        //code
+        $('.navButton').css('backgroundColor', '');
+        $('#southLakeUnionButton').css('backgroundColor', 'green');
+        managerBob.generateForm("southLakeUnionForm");
       }
     }
   );
@@ -285,7 +308,9 @@ $(function() {
       if(formToggle === false){
         displayData("wedgewood");
       } else {
-        //code
+        $('.navButton').css('backgroundColor', '');
+        $('#wedgewoodButton').css('backgroundColor', 'green');
+        managerBob.generateForm("wedgewoodForm");
       }
     }
   );
@@ -294,9 +319,22 @@ $(function() {
       if(formToggle === false){
         displayData("ballard");
       } else {
-        //code
+        $('.navButton').css('backgroundColor', '');
+        $('#ballardButton').css('backgroundColor', 'green');
+        managerBob.generateForm("ballardForm");
       }
     }
   );
 
+
+
 });
+
+
+
+
+
+
+
+
+
