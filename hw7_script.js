@@ -54,7 +54,7 @@ $(function() {
 
     var managerName = name;
 
-    //method to add a new shop to the current list of shops and their parameters.  This is LOCAL ONLY, does not change values in the rest of the script
+    /*method to add a new shop to the current list of shops and their parameters.  This is LOCAL ONLY, does not change values in the rest of the script - commented out, replacing with edit min/max customers button
     this.addShop = function(){
 
       //create a new local array to be eddited
@@ -74,7 +74,18 @@ $(function() {
         alert("Shop name and hours open: " + addShopArray[j]);
       }
 
-    };
+    }; */
+
+    //Generate text entry form when location selected for edit
+    this.generateForm = function(loc) {
+
+      var formStructure = "<input class='' type='text' style='color: black;' name='minCust' placeholder='New Min Customer'> <input class='' type='text' style='color: black;' name='maxCust' placeholder='New Max Customer'>"; //need to add button
+
+      $('#newForm').html(function(){
+        return formStructure;
+      });
+      $("input").attr('class', loc);
+    }
 
   }
 
@@ -98,6 +109,9 @@ $(function() {
 
   //animate counter
   var animateCounter = 1;
+
+  //form display toggle
+  var formToggle = false;
 
   //print detailed information to the console
   for (var i = 0; i < printArray.length; i++) {
@@ -220,8 +234,9 @@ $(function() {
     }
   );
 
-  $('#addShopButton').on('click', function() {
-      managerBob.addShop();
+  //toggle display/hide edit form
+  $('#toggleEditButton').on('click', function() {
+      formToggle = !formToggle;
     }
   );
 
@@ -232,27 +247,55 @@ $(function() {
 
   //nav buttons
   $('#downtownButton').on('click', function() {
-      displayData("downtown");
+
+      if(formToggle === false){
+        displayData("downtown");
+      } else {
+        $('.navButton').css('backgroundColor', '');
+        $('#downtownButton').css('backgroundColor', 'green');
+        managerBob.generateForm("downtownForm")
+      }
+
     }
   );
 
   $('#capitolHillButton').on('click', function() {
-      displayData("capitolHill");
+
+      if(formToggle === false){
+        displayData("capitolHill");
+      } else {
+        $('.navButton').css('backgroundColor', '');
+        $('#capitolHillButton').css('backgroundColor', 'green');
+      }
     }
   );
 
   $('#sluButton').on('click', function() {
-      displayData("southLakeUnion");
+
+      if (formToggle === false){
+        displayData("southLakeUnion");
+      } else {
+        //code
+      }
     }
   );
 
   $('#wedgewoodButton').on('click', function() {
-      displayData("wedgewood");
+
+      if(formToggle === false){
+        displayData("wedgewood");
+      } else {
+        //code
+      }
     }
   );
 
   $('#ballardButton').on('click', function() {
-      displayData("ballard");
+      if(formToggle === false){
+        displayData("ballard");
+      } else {
+        //code
+      }
     }
   );
 
