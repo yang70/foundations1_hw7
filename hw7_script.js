@@ -69,7 +69,7 @@ $(function() {
       });
       $("input").attr('class', loc);
       $("form button").attr('class', loc);
-    }
+    };
 
   }
 
