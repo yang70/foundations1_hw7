@@ -59,28 +59,6 @@ $(function() {
 
     var managerName = name;
 
-    /*method to add a new shop to the current list of shops and their parameters.  This is LOCAL ONLY, does not change values in the rest of the script - commented out, replacing with edit min/max customers button
-    this.addShop = function(){
-
-      //create a new local array to be eddited
-      var addShopArray = [];
-      for (var i = 0; i < printArray.length; i++) {
-        addShopArray.push([printArray[i].location, printArray[i].hoursOpen]);
-      }
-
-      //get parameters for the new shop and add them to the array
-      var newShopName = prompt("Enter a name or location for the new shop");
-      var newShopDaily = prompt("Enter a number value for the hours per day the shop is open");
-
-      addShopArray.push([newShopName, newShopDaily]);
-
-      //loop through the array and display the values, including the new shop
-      for (var j = 0; j < addShopArray.length; j++) {
-        alert("Shop name and hours open: " + addShopArray[j]);
-      }
-
-    }; */
-
     //Generate text entry form when location selected for edit
     this.generateForm = function(loc) {
 
@@ -243,9 +221,10 @@ $(function() {
   //toggle display/hide edit form
   $('#toggleEditButton').on('click', function() {
       formToggle = !formToggle;
-      $('#toggleEditButton').toggleClass('green');
+      $('#editInstructions').toggle();
+      $('#toggleEditButton').toggleClass('red');
       $('.navButton').css('backgroundColor', '');
-      $('tbody tr').remove();
+      $('form').children().remove();
     }
   );
 
@@ -257,11 +236,11 @@ $(function() {
   //nav buttons
   $('#downtownButton').on('click', function() {
 
-      if(formToggle === false){
-        displayData("downtown");
+    if(formToggle === false){
+      displayData("downtown");
       } else {
         $('.navButton').css('backgroundColor', '');
-        $('#downtownButton').css('backgroundColor', 'green');
+        $('#downtownButton').css('backgroundColor', 'red');
         managerBob.generateForm("downtownForm");
 
         $('button.downtownForm').on('click', function(e){
@@ -272,10 +251,8 @@ $(function() {
           downtownTable = false;
           $("#downtown").remove();
           displayData("downtown");
-
-          });
-        }
-
+        });
+      }
     }
   );
 
@@ -285,8 +262,18 @@ $(function() {
         displayData("capitolHill");
       } else {
         $('.navButton').css('backgroundColor', '');
-        $('#capitolHillButton').css('backgroundColor', 'green');
+        $('#capitolHillButton').css('backgroundColor', 'red');
         managerBob.generateForm("capitolHillForm");
+
+        $('button.capitolHillForm').on('click', function(e){
+          e.preventDefault();
+          var newMinCustomer = $('[name="minCust"]').val();
+          var newMaxCustomer = $('[name="maxCust"]').val();
+          capitolHill = new Shop("Capitol Hill", newMinCustomer, newMaxCustomer, 2, 10);
+          capitolHillTable = false;
+          $("#capitolHill").remove();
+          displayData("capitolHill");
+        });
       }
     }
   );
@@ -297,8 +284,18 @@ $(function() {
         displayData("southLakeUnion");
       } else {
         $('.navButton').css('backgroundColor', '');
-        $('#southLakeUnionButton').css('backgroundColor', 'green');
+        $('#sluButton').css('backgroundColor', 'red');
         managerBob.generateForm("southLakeUnionForm");
+
+        $('button.southLakeUnionForm').on('click', function(e){
+          e.preventDefault();
+          var newMinCustomer = $('[name="minCust"]').val();
+          var newMaxCustomer = $('[name="maxCust"]').val();
+          southLakeUnion = new Shop("South Lake Union", newMinCustomer, newMaxCustomer, 6.33, 8);
+          southLakeUnionTable = false;
+          $("#southLakeUnion").remove();
+          displayData("southLakeUnion");
+        });
       }
     }
   );
@@ -309,8 +306,18 @@ $(function() {
         displayData("wedgewood");
       } else {
         $('.navButton').css('backgroundColor', '');
-        $('#wedgewoodButton').css('backgroundColor', 'green');
+        $('#wedgewoodButton').css('backgroundColor', 'red');
         managerBob.generateForm("wedgewoodForm");
+
+        $('button.wedgewoodForm').on('click', function(e){
+          e.preventDefault();
+          var newMinCustomer = $('[name="minCust"]').val();
+          var newMaxCustomer = $('[name="maxCust"]').val();
+          wedgewood = new Shop("Wedgewood", newMinCustomer, newMaxCustomer, 1.25, 10);
+          wedgewoodTable = false;
+          $("#wedgewood").remove();
+          displayData("wedgewood");
+        });
       }
     }
   );
@@ -320,8 +327,18 @@ $(function() {
         displayData("ballard");
       } else {
         $('.navButton').css('backgroundColor', '');
-        $('#ballardButton').css('backgroundColor', 'green');
+        $('#ballardButton').css('backgroundColor', 'red');
         managerBob.generateForm("ballardForm");
+
+        $('button.ballardForm').on('click', function(e){
+          e.preventDefault();
+          var newMinCustomer = $('[name="minCust"]').val();
+          var newMaxCustomer = $('[name="maxCust"]').val();
+          ballard = new Shop("Ballard", newMinCustomer, newMaxCustomer, 3.75, 10);
+          ballardTable = false;
+          $("#ballard").remove();
+          displayData("ballard");
+        });
       }
     }
   );
