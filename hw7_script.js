@@ -233,7 +233,7 @@ $(function() {
     }
   );
 
-  //nav buttons
+  //nav buttons - change depending if in edit mode or not
   $('#downtownButton').on('click', function() {
 
     if(formToggle === false){
@@ -347,7 +347,7 @@ $(function() {
 
 });
 
-
+//Homework 7 final version
 
 
 
